@@ -1,0 +1,42 @@
+@import "site.mixins.less";
+
+.s-Basic-ProductGrid {
+    .discontinued .slick-cell, .discontinued .slick-cell a {
+        color: lightgray;
+    }
+
+    .out-of-stock .slick-cell, .out-of-stock .slick-cell a {
+        background-color: #ffaaaa;
+        color: red;
+    }
+
+    .critical-stock {
+        background-color: #ffd5c0;
+
+        .slick-cell, .slick-cell a {
+            color: black;
+        }
+    }
+
+    .much-stock {
+
+        .slick-cell, .slick-cell a {
+            font-style: italic;
+        }
+    }
+
+    .high-price .r1 {
+        background-color: darkorchid;
+        color: #fff;
+    }
+
+    .medium-price .r1 {
+        background-color: yellow;
+        color: #000;
+    }
+
+    .low-price .r1 {
+        background-color: green;
+        color: #fff;
+    }
+}

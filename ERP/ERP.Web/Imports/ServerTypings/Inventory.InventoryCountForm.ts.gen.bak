@@ -1,0 +1,16 @@
+﻿
+
+namespace ERP.Inventory {
+    export class InventoryCountForm extends Serenity.PrefixedContext {
+        static formKey = 'Inventory.InventoryCount';
+    }
+
+    export interface InventoryCountForm {
+        DepotId: Serenity.StringEditor;
+        CheckDate: Serenity.DateEditor;
+        Description: Serenity.StringEditor;
+        State: Serenity.IntegerEditor;
+    }
+
+    [['InventoryId', () => Serenity.StringEditor], ['DepotId', () => Serenity.StringEditor], ['CheckDate', () => Serenity.DateEditor], ['Description', () => Serenity.StringEditor], ['State', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(InventoryCountForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+}

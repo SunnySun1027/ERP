@@ -1,0 +1,17 @@
+﻿
+
+namespace ERP.Inventory {
+    export class DepotStockForm extends Serenity.PrefixedContext {
+        static formKey = 'Inventory.DepotStock';
+    }
+
+    export interface DepotStockForm {
+        DepotId: Serenity.StringEditor;
+        ProductId: Serenity.IntegerEditor;
+        ColorId: Serenity.IntegerEditor;
+        SizeId: Serenity.IntegerEditor;
+        Quantity: Serenity.IntegerEditor;
+    }
+
+    [['Id', () => Serenity.IntegerEditor], ['DepotId', () => Serenity.StringEditor], ['ProductId', () => Serenity.IntegerEditor], ['ColorId', () => Serenity.IntegerEditor], ['SizeId', () => Serenity.IntegerEditor], ['Quantity', () => Serenity.IntegerEditor]].forEach(x => Object.defineProperty(DepotStockForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+}

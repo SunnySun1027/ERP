@@ -1,0 +1,33 @@
+﻿
+namespace ERP.Purchase.Forms
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using System;
+    using System.ComponentModel;
+    using System.Collections.Generic;
+    using System.IO;
+    using Basic.Entities;
+    using Serenity.Data.Mapping;
+    [FormScript("Purchase.PurchaseOrderDetail")]
+    [BasedOnRow(typeof(Entities.PurchaseOrderDetailRow))]
+    public class PurchaseOrderDetailForm
+    {
+        public String OrderId { get; set; }
+        [NotNull]
+        [LookupEditor(typeof(ProductRow))]
+        public Int32 ProductID { get; set; }
+        [NotNull]
+        [LookupEditor(typeof(ProductColorRow))]
+        public Int32 ColorID { get; set; }
+        [NotNull]
+        [LookupEditor(typeof(ProductSizeRow))]
+        public Int32 SizeID { get; set; }
+        [NotNull, DisplayFormat("#,##0.00")]
+        public Decimal UnitPrice { get; set; }
+        [NotNull, DefaultValue(1)]
+        public Int32 Quantity { get; set; }
+        public String Description { get; set; }
+    }
+}

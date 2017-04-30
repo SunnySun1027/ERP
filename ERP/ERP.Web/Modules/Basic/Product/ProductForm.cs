@@ -1,0 +1,34 @@
+﻿
+namespace ERP.Basic.Forms
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.IO;
+
+    [FormScript("Basic.Product")]
+    [BasedOnRow(typeof(Entities.ProductRow))]
+    public class ProductForm
+    {
+        [Category("General")]
+        public String ProductName { get; set; }
+        public String ProductImage { get; set; }
+        public String GalleryImages { get; set; }
+        public Boolean Discontinued { get; set; }
+        public Int32 SupplierID { get; set; }
+        public Int32 CategoryID { get; set; }
+        [Category("Pricing")]
+        public String QuantityPerUnit { get; set; }
+        public Decimal UnitPrice { get; set; }
+        [Category("Status")]
+        public Int16 UnitsInStock { get; set; }
+        public Int16 UnitsOnOrder { get; set; }
+        public Int16 ReorderLevel { get; set; }
+        [Category("Details")]
+        public List<Int32> ProductColor { get; set; }
+        public List<Int32> ProductSize { get; set; }
+    }
+}

@@ -1,0 +1,26 @@
+﻿
+namespace ERP.Inventory.Columns
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using System;
+    using System.ComponentModel;
+    using System.Collections.Generic;
+    using System.IO;
+
+    [ColumnsScript("Inventory.DepotStock")]
+    [BasedOnRow(typeof(Entities.DepotStockRow))]
+    public class DepotStockColumns
+    {
+        [EditLink(ItemType = "Inventory.Depot"), Width(200), QuickFilter]
+        public String DepotDepotName { get; set; }
+        [Width(200), QuickFilter]
+        public String ProductName { get; set; }
+        [Width(200), QuickFilter]
+        public String ColorName { get; set; }
+        [Width(200), QuickFilter]
+        public String SizeSizeName { get; set; }
+        public Int32 Quantity { get; set; }
+    }
+}

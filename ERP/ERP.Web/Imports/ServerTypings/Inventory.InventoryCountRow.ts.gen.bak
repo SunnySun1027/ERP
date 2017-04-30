@@ -1,0 +1,31 @@
+﻿
+namespace ERP.Inventory {
+    export interface InventoryCountRow {
+        InventoryId?: string;
+        DepotId?: string;
+        CheckDate?: string;
+        Description?: string;
+        State?: number;
+        DepotDepotName?: string;
+        DepotDescription?: string;
+    }
+
+    export namespace InventoryCountRow {
+        export const idProperty = 'InventoryId';
+        export const nameProperty = 'InventoryId';
+        export const localTextPrefix = 'Inventory.InventoryCount';
+
+        export namespace Fields {
+            export declare const InventoryId;
+            export declare const DepotId;
+            export declare const CheckDate;
+            export declare const Description;
+            export declare const State;
+            export declare const DepotDepotName: string;
+            export declare const DepotDescription: string;
+        }
+
+        ['InventoryId', 'DepotId', 'CheckDate', 'Description', 'State', 'DepotDepotName', 'DepotDescription'].forEach(x => (<any>Fields)[x] = x);
+    }
+}
+

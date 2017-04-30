@@ -1,0 +1,73 @@
+﻿
+namespace ERP.Purchase {
+    export interface PurchaseOrderDetailRow {
+        Id?: number;
+        OrderId?: string;
+        ProductId?: number;
+        ColorId?: number;
+        SizeId?: number;
+        Quantity?: number;
+        UnitPrice?: number;
+        Description?: string;
+        OrderId?: number;
+        OrderSupplierId?: number;
+        OrderUserId?: number;
+        OrderCreateDate?: string;
+        OrderDescription?: string;
+        OrderState?: number;
+        ProductProductName?: string;
+        ProductSupplierId?: number;
+        ProductCategoryId?: number;
+        ProductQuantityPerUnit?: string;
+        ProductUnitPrice?: number;
+        ProductUnitsInStock?: number;
+        ProductUnitsOnOrder?: number;
+        ProductReorderLevel?: number;
+        ProductDiscontinued?: boolean;
+        ProductProductImage?: string;
+        ColorColorName?: string;
+        ColorColorGroupId?: number;
+        SizeSizeName?: string;
+        SizeSizeGroupId?: number;
+    }
+
+    export namespace PurchaseOrderDetailRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'OrderId';
+        export const localTextPrefix = 'Purchase.PurchaseOrderDetail';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const OrderId;
+            export declare const ProductId;
+            export declare const ColorId;
+            export declare const SizeId;
+            export declare const Quantity;
+            export declare const UnitPrice;
+            export declare const Description;
+            export declare const OrderId: string;
+            export declare const OrderSupplierId: string;
+            export declare const OrderUserId: string;
+            export declare const OrderCreateDate: string;
+            export declare const OrderDescription: string;
+            export declare const OrderState: string;
+            export declare const ProductProductName: string;
+            export declare const ProductSupplierId: string;
+            export declare const ProductCategoryId: string;
+            export declare const ProductQuantityPerUnit: string;
+            export declare const ProductUnitPrice: string;
+            export declare const ProductUnitsInStock: string;
+            export declare const ProductUnitsOnOrder: string;
+            export declare const ProductReorderLevel: string;
+            export declare const ProductDiscontinued: string;
+            export declare const ProductProductImage: string;
+            export declare const ColorColorName: string;
+            export declare const ColorColorGroupId: string;
+            export declare const SizeSizeName: string;
+            export declare const SizeSizeGroupId: string;
+        }
+
+        ['Id', 'OrderId', 'ProductId', 'ColorId', 'SizeId', 'Quantity', 'UnitPrice', 'Description', 'OrderId', 'OrderSupplierId', 'OrderUserId', 'OrderCreateDate', 'OrderDescription', 'OrderState', 'ProductProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ColorColorName', 'ColorColorGroupId', 'SizeSizeName', 'SizeSizeGroupId'].forEach(x => (<any>Fields)[x] = x);
+    }
+}
+

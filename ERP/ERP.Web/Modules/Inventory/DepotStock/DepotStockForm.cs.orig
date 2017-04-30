@@ -1,0 +1,21 @@
+﻿
+namespace ERP.Inventory.Forms
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using System;
+    using System.ComponentModel;
+    using System.Collections.Generic;
+    using System.IO;
+
+    [FormScript("Inventory.DepotStock")]
+    [BasedOnRow(typeof(Entities.DepotStockRow))]
+    public class DepotStockForm
+    {
+        public Int32 ProductId { get; set; }
+        public Int32 ColorId { get; set; }
+        public Int32 SizeId { get; set; }
+        public Int32 Quantity { get; set; }
+    }
+}

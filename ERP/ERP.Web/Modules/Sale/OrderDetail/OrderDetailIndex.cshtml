@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.Sale.OrderDetail.EntityPlural");
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new ERP.Sale.OrderDetailGrid($('#GridDiv'), {
+        });
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

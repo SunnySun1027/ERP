@@ -1,0 +1,69 @@
+﻿
+namespace ERP.Inventory {
+    export interface InventoryCountDetailRow {
+        Id?: number;
+        InventoryId?: string;
+        ProductId?: number;
+        ColorId?: number;
+        SizeId?: number;
+        Quantity?: number;
+        OriginalQuantity?: number;
+        Description?: string;
+        InventoryDepotId?: string;
+        InventoryCheckDate?: string;
+        InventoryDescription?: string;
+        InventoryState?: number;
+        ProductProductName?: string;
+        ProductSupplierId?: number;
+        ProductCategoryId?: number;
+        ProductQuantityPerUnit?: string;
+        ProductUnitPrice?: number;
+        ProductUnitsInStock?: number;
+        ProductUnitsOnOrder?: number;
+        ProductReorderLevel?: number;
+        ProductDiscontinued?: boolean;
+        ProductProductImage?: string;
+        ColorColorName?: string;
+        ColorColorGroupId?: number;
+        SizeSizeName?: string;
+        SizeSizeGroupId?: number;
+    }
+
+    export namespace InventoryCountDetailRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'InventoryId';
+        export const localTextPrefix = 'Inventory.InventoryCountDetail';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const InventoryId;
+            export declare const ProductId;
+            export declare const ColorId;
+            export declare const SizeId;
+            export declare const Quantity;
+            export declare const OriginalQuantity;
+            export declare const Description;
+            export declare const InventoryDepotId: string;
+            export declare const InventoryCheckDate: string;
+            export declare const InventoryDescription: string;
+            export declare const InventoryState: string;
+            export declare const ProductProductName: string;
+            export declare const ProductSupplierId: string;
+            export declare const ProductCategoryId: string;
+            export declare const ProductQuantityPerUnit: string;
+            export declare const ProductUnitPrice: string;
+            export declare const ProductUnitsInStock: string;
+            export declare const ProductUnitsOnOrder: string;
+            export declare const ProductReorderLevel: string;
+            export declare const ProductDiscontinued: string;
+            export declare const ProductProductImage: string;
+            export declare const ColorColorName: string;
+            export declare const ColorColorGroupId: string;
+            export declare const SizeSizeName: string;
+            export declare const SizeSizeGroupId: string;
+        }
+
+        ['Id', 'InventoryId', 'ProductId', 'ColorId', 'SizeId', 'Quantity', 'OriginalQuantity', 'Description', 'InventoryDepotId', 'InventoryCheckDate', 'InventoryDescription', 'InventoryState', 'ProductProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ColorColorName', 'ColorColorGroupId', 'SizeSizeName', 'SizeSizeGroupId'].forEach(x => (<any>Fields)[x] = x);
+    }
+}
+

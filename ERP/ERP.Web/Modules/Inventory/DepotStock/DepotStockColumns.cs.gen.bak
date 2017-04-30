@@ -1,0 +1,25 @@
+﻿
+namespace ERP.Inventory.Columns
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using System;
+    using System.ComponentModel;
+    using System.Collections.Generic;
+    using System.IO;
+
+    [ColumnsScript("Inventory.DepotStock")]
+    [BasedOnRow(typeof(Entities.DepotStockRow))]
+    public class DepotStockColumns
+    {
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        public Int32 Id { get; set; }
+        [EditLink]
+        public String DepotId { get; set; }
+        public Int32 ProductId { get; set; }
+        public Int32 ColorId { get; set; }
+        public Int32 SizeId { get; set; }
+        public Int32 Quantity { get; set; }
+    }
+}
