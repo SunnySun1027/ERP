@@ -6738,7 +6738,6 @@ var ERP;
                     && (x.DepotID === _this.depotID); });
                 if (sameProduct) {
                     this.form.Quantity.value = sameProduct.Quantity;
-                    this.form.OriginalQuantity.value = sameProduct.Quantity;
                 }
             };
             return RetailOrderDetailsDialog;

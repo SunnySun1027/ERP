@@ -10,8 +10,8 @@
 6 silly lifecycle serene@1.0.0~pretsc: no script for pretsc, continuing
 7 info lifecycle serene@1.0.0~tsc: serene@1.0.0
 8 verbose lifecycle serene@1.0.0~tsc: unsafe-perm in lifecycle true
-9 verbose lifecycle serene@1.0.0~tsc: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\KLION\Source\Repos\ERP3\ERP\ERP.Web\node_modules\.bin;C:\Program Files\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\NativeBinaries\x86;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;%USERPROFILE%\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\nodejs\;C:\Users\KLION\AppData\Roaming\npm
-10 verbose lifecycle serene@1.0.0~tsc: CWD: C:\Users\KLION\Source\Repos\ERP3\ERP\ERP.Web
+9 verbose lifecycle serene@1.0.0~tsc: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\pengmingcai\Source\Repos\ERP4\ERP\ERP.Web\node_modules\.bin;C:\Program Files\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\NativeBinaries\x86;C:\Program Files\Parallels\Parallels Tools\Applications;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\pengmingcai\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;c:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\nodejs\;C:\Users\pengmingcai\.dnx\bin;C:\Users\pengmingcai\AppData\Roaming\npm
+10 verbose lifecycle serene@1.0.0~tsc: CWD: C:\Users\pengmingcai\Source\Repos\ERP4\ERP\ERP.Web
 11 silly lifecycle serene@1.0.0~tsc: Args: [ '/d /s /c', 'tsc -p ./tsconfig.json' ]
 12 silly lifecycle serene@1.0.0~tsc: Returned: code: 2  signal: null
 13 info lifecycle serene@1.0.0~tsc: Failed to exec tsc script
@@ -26,8 +26,8 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid serene@1.0.0
-16 verbose cwd C:\Users\KLION\Source\Repos\ERP3\ERP\ERP.Web
-17 error Windows_NT 6.1.7601
+16 verbose cwd C:\Users\pengmingcai\Source\Repos\ERP4\ERP\ERP.Web
+17 error Windows_NT 10.0.10240
 18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "tsc"
 19 error node v6.9.5
 20 error npm  v3.10.10
