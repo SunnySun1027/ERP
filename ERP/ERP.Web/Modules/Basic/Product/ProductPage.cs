@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Basic/Product", typeof(ERP.Basic.Pages.ProductController))]
+//[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Basic/Product", typeof(ERP.Basic.Pages.ProductController))]
 
 namespace ERP.Basic.Pages
 {

@@ -1862,6 +1862,202 @@ var ERP;
 })(ERP || (ERP = {}));
 var ERP;
 (function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrderDetailsForm = (function (_super) {
+            __extends(RetailOrderDetailsForm, _super);
+            function RetailOrderDetailsForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return RetailOrderDetailsForm;
+        }(Serenity.PrefixedContext));
+        RetailOrderDetailsForm.formKey = 'Sale.RetailOrderDetails';
+        Sale.RetailOrderDetailsForm = RetailOrderDetailsForm;
+        [['ProductID', function () { return Serenity.LookupEditor; }], ['ColorID', function () { return Serenity.LookupEditor; }], ['SizeID', function () { return Serenity.LookupEditor; }], ['UnitPrice', function () { return Serenity.DecimalEditor; }], ['Quantity', function () { return Serenity.IntegerEditor; }], ['Description', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(RetailOrderDetailsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrderDetailsRow;
+        (function (RetailOrderDetailsRow) {
+            RetailOrderDetailsRow.idProperty = 'Id';
+            RetailOrderDetailsRow.nameProperty = 'OrderId';
+            RetailOrderDetailsRow.localTextPrefix = 'Sale.RetailOrderDetails';
+            var Fields;
+            (function (Fields) {
+            })(Fields = RetailOrderDetailsRow.Fields || (RetailOrderDetailsRow.Fields = {}));
+            ['Id', 'OrderId', 'ProductID', 'ColorID', 'SizeID', 'UnitPrice', 'Quantity', 'Description', 'OrderCustomerId', 'OrderUserId', 'OrderCreateDate', 'OrderDescription', 'OrderState', 'ProductProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ProductGalleryImages', 'ColorColorName', 'ColorColorGroupId', 'SizeSizeName', 'SizeSizeGroupId'].forEach(function (x) { return Fields[x] = x; });
+        })(RetailOrderDetailsRow = Sale.RetailOrderDetailsRow || (Sale.RetailOrderDetailsRow = {}));
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrderDetailsService;
+        (function (RetailOrderDetailsService) {
+            RetailOrderDetailsService.baseUrl = 'Sale/RetailOrderDetails';
+            var Methods;
+            (function (Methods) {
+            })(Methods = RetailOrderDetailsService.Methods || (RetailOrderDetailsService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                RetailOrderDetailsService[x] = function (r, s, o) { return Q.serviceRequest(RetailOrderDetailsService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = RetailOrderDetailsService.baseUrl + '/' + x;
+            });
+        })(RetailOrderDetailsService = Sale.RetailOrderDetailsService || (Sale.RetailOrderDetailsService = {}));
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrdersForm = (function (_super) {
+            __extends(RetailOrdersForm, _super);
+            function RetailOrdersForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return RetailOrdersForm;
+        }(Serenity.PrefixedContext));
+        RetailOrdersForm.formKey = 'Sale.RetailOrders';
+        Sale.RetailOrdersForm = RetailOrdersForm;
+        [['OrderId', function () { return Serenity.StringEditor; }], ['CustomerId', function () { return Serenity.StringEditor; }], ['UserId', function () { return Serenity.IntegerEditor; }], ['CreateDate', function () { return Serenity.DateEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['State', function () { return Serenity.IntegerEditor; }], ['DetailList', function () { return Sale.RetailOrderDetailsEditor; }]].forEach(function (x) { return Object.defineProperty(RetailOrdersForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrdersRow;
+        (function (RetailOrdersRow) {
+            RetailOrdersRow.idProperty = 'OrderId';
+            RetailOrdersRow.nameProperty = 'OrderId';
+            RetailOrdersRow.localTextPrefix = 'Sale.RetailOrders';
+            var Fields;
+            (function (Fields) {
+            })(Fields = RetailOrdersRow.Fields || (RetailOrdersRow.Fields = {}));
+            ['OrderId', 'CustomerId', 'UserId', 'CreateDate', 'Description', 'State', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerAddress', 'CustomerCity', 'CustomerRegion', 'CustomerPostalCode', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'CustomerId', 'DetailList'].forEach(function (x) { return Fields[x] = x; });
+        })(RetailOrdersRow = Sale.RetailOrdersRow || (Sale.RetailOrdersRow = {}));
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrdersService;
+        (function (RetailOrdersService) {
+            RetailOrdersService.baseUrl = 'Sale/RetailOrders';
+            var Methods;
+            (function (Methods) {
+            })(Methods = RetailOrdersService.Methods || (RetailOrdersService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'GetNextNumber', 'Retrieve', 'List'].forEach(function (x) {
+                RetailOrdersService[x] = function (r, s, o) { return Q.serviceRequest(RetailOrdersService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = RetailOrdersService.baseUrl + '/' + x;
+            });
+        })(RetailOrdersService = Sale.RetailOrdersService || (Sale.RetailOrdersService = {}));
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Shoes;
+    (function (Shoes) {
+        var RetailOrderDetailsForm = (function (_super) {
+            __extends(RetailOrderDetailsForm, _super);
+            function RetailOrderDetailsForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return RetailOrderDetailsForm;
+        }(Serenity.PrefixedContext));
+        RetailOrderDetailsForm.formKey = 'Shoes.RetailOrderDetails';
+        Shoes.RetailOrderDetailsForm = RetailOrderDetailsForm;
+        [['Id', function () { return Serenity.IntegerEditor; }], ['OrderId', function () { return Serenity.StringEditor; }], ['ProductId', function () { return Serenity.IntegerEditor; }], ['ColorId', function () { return Serenity.IntegerEditor; }], ['SizeId', function () { return Serenity.IntegerEditor; }], ['UnitPrice', function () { return Serenity.DecimalEditor; }], ['Quantity', function () { return Serenity.IntegerEditor; }], ['Description', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(RetailOrderDetailsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Shoes = ERP.Shoes || (ERP.Shoes = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Shoes;
+    (function (Shoes) {
+        var RetailOrderDetailsRow;
+        (function (RetailOrderDetailsRow) {
+            RetailOrderDetailsRow.idProperty = 'Id';
+            RetailOrderDetailsRow.nameProperty = 'OrderId';
+            RetailOrderDetailsRow.localTextPrefix = 'Shoes.RetailOrderDetails';
+            var Fields;
+            (function (Fields) {
+            })(Fields = RetailOrderDetailsRow.Fields || (RetailOrderDetailsRow.Fields = {}));
+            ['Id', 'OrderId', 'ProductId', 'ColorId', 'SizeId', 'UnitPrice', 'Quantity', 'Description', 'OrderCustomerId', 'OrderUserId', 'OrderCreateDate', 'OrderDescription', 'OrderState', 'ProductProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ProductGalleryImages', 'ColorColorName', 'ColorColorGroupId', 'SizeSizeName', 'SizeSizeGroupId'].forEach(function (x) { return Fields[x] = x; });
+        })(RetailOrderDetailsRow = Shoes.RetailOrderDetailsRow || (Shoes.RetailOrderDetailsRow = {}));
+    })(Shoes = ERP.Shoes || (ERP.Shoes = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Shoes;
+    (function (Shoes) {
+        var RetailOrderDetailsService;
+        (function (RetailOrderDetailsService) {
+            RetailOrderDetailsService.baseUrl = 'Shoes/RetailOrderDetails';
+            var Methods;
+            (function (Methods) {
+            })(Methods = RetailOrderDetailsService.Methods || (RetailOrderDetailsService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                RetailOrderDetailsService[x] = function (r, s, o) { return Q.serviceRequest(RetailOrderDetailsService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = RetailOrderDetailsService.baseUrl + '/' + x;
+            });
+        })(RetailOrderDetailsService = Shoes.RetailOrderDetailsService || (Shoes.RetailOrderDetailsService = {}));
+    })(Shoes = ERP.Shoes || (ERP.Shoes = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Shoes;
+    (function (Shoes) {
+        var RetailOrdersForm = (function (_super) {
+            __extends(RetailOrdersForm, _super);
+            function RetailOrdersForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return RetailOrdersForm;
+        }(Serenity.PrefixedContext));
+        RetailOrdersForm.formKey = 'Shoes.RetailOrders';
+        Shoes.RetailOrdersForm = RetailOrdersForm;
+        [['OrderId', function () { return Serenity.StringEditor; }], ['CustomerId', function () { return Serenity.StringEditor; }], ['UserId', function () { return Serenity.IntegerEditor; }], ['CreateDate', function () { return Serenity.DateEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['State', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(RetailOrdersForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Shoes = ERP.Shoes || (ERP.Shoes = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Shoes;
+    (function (Shoes) {
+        var RetailOrdersRow;
+        (function (RetailOrdersRow) {
+            RetailOrdersRow.idProperty = 'OrderId';
+            RetailOrdersRow.nameProperty = 'OrderId';
+            RetailOrdersRow.localTextPrefix = 'Shoes.RetailOrders';
+            var Fields;
+            (function (Fields) {
+            })(Fields = RetailOrdersRow.Fields || (RetailOrdersRow.Fields = {}));
+            ['OrderId', 'CustomerId', 'UserId', 'CreateDate', 'Description', 'State', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerAddress', 'CustomerCity', 'CustomerRegion', 'CustomerPostalCode', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'CustomerId'].forEach(function (x) { return Fields[x] = x; });
+        })(RetailOrdersRow = Shoes.RetailOrdersRow || (Shoes.RetailOrdersRow = {}));
+    })(Shoes = ERP.Shoes || (ERP.Shoes = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Shoes;
+    (function (Shoes) {
+        var RetailOrdersService;
+        (function (RetailOrdersService) {
+            RetailOrdersService.baseUrl = 'Shoes/RetailOrders';
+            var Methods;
+            (function (Methods) {
+            })(Methods = RetailOrdersService.Methods || (RetailOrdersService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                RetailOrdersService[x] = function (r, s, o) { return Q.serviceRequest(RetailOrdersService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = RetailOrdersService.baseUrl + '/' + x;
+            });
+        })(RetailOrdersService = Shoes.RetailOrdersService || (Shoes.RetailOrdersService = {}));
+    })(Shoes = ERP.Shoes || (ERP.Shoes = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
     var Administration;
     (function (Administration) {
         var LanguageDialog = (function (_super) {
@@ -6434,9 +6630,9 @@ var ERP;
                 var _this = _super.call(this) || this;
                 _this.form = new Sale.OrderDetailForm(_this.idPrefix);
                 _this.form.ProductID.changeSelect2(function (e) {
-                    var productID = Q.toId(_this.form.ProductID.value);
-                    if (productID != null) {
-                        _this.form.UnitPrice.value = ERP.Basic.ProductRow.getLookup().itemById[productID].UnitPrice;
+                    var ProductID = Q.toId(_this.form.ProductID.value);
+                    if (ProductID != null) {
+                        _this.form.UnitPrice.value = ERP.Basic.ProductRow.getLookup().itemById[ProductID].UnitPrice;
                     }
                 });
                 _this.form.Discount.addValidationRule(_this.uniqueName, function (e) {
@@ -6490,6 +6686,198 @@ var ERP;
             Serenity.Decorators.registerClass()
         ], OrderDetailsEditor);
         Sale.OrderDetailsEditor = OrderDetailsEditor;
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrderDetailsDialog = (function (_super) {
+            __extends(RetailOrderDetailsDialog, _super);
+            function RetailOrderDetailsDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Sale.RetailOrderDetailsForm(_this.idPrefix);
+                // we can set cascade field in constructor
+                // we could also use FilterField but in this case, when CategoryID is null
+                // lookup editor would show all products in any category
+                //this.form.ProductID.cascadeField = Inventory.DepotStockRow.Fields.DepotID;
+                _this.form.ColorID.cascadeFrom = "ProductID";
+                _this.form.SizeID.cascadeFrom = "ProductID";
+                // but CategoryID value is not yet available here as detail editor will set it 
+                // after calling constructor (creating a detail dialog) so we'll use BeforeLoadEntity
+                _this.form.ProductID.changeSelect2(function (e) {
+                    _this.getDepotStock();
+                });
+                _this.form.ColorID.changeSelect2(function (e) {
+                    _this.getDepotStock();
+                });
+                _this.form.SizeID.changeSelect2(function (e) {
+                    _this.getDepotStock();
+                });
+                return _this;
+                //this.form.Discount.addValidationRule(this.uniqueName, e => {
+                //    var price = this.form.UnitPrice.value;
+                //    var quantity = this.form.Quantity.value;
+                //    var discount = this.form.Discount.value;
+                //    if (price != null && quantity != null && discount != null &&
+                //        discount > 0 && discount >= price * quantity) {
+                //        return "Discount can't be higher than total price!";
+                //    }
+                //});
+            }
+            RetailOrderDetailsDialog.prototype.getFormKey = function () { return Sale.RetailOrderDetailsForm.formKey; };
+            RetailOrderDetailsDialog.prototype.getLocalTextPrefix = function () { return Sale.RetailOrderDetailsRow.localTextPrefix; };
+            RetailOrderDetailsDialog.prototype.getDepotStock = function () {
+                var _this = this;
+                var ProductID = parseInt(this.form.ProductID.value);
+                var ColorID = parseInt(this.form.ColorID.value);
+                var SizeID = parseInt(this.form.SizeID.value);
+                var sameProduct = Q.tryFirst(ERP.Inventory.DepotStockRow.getLookup().items, function (x) { return (x.ProductID === ProductID)
+                    && (x.ColorID === ColorID)
+                    && (x.SizeID === SizeID)
+                    && (x.DepotID === _this.depotID); });
+                if (sameProduct) {
+                    this.form.Quantity.value = sameProduct.Quantity;
+                    this.form.OriginalQuantity.value = sameProduct.Quantity;
+                }
+            };
+            return RetailOrderDetailsDialog;
+        }(ERP.Common.GridEditorDialog));
+        RetailOrderDetailsDialog = __decorate([
+            Serenity.Decorators.registerClass(),
+            Serenity.Decorators.responsive()
+        ], RetailOrderDetailsDialog);
+        Sale.RetailOrderDetailsDialog = RetailOrderDetailsDialog;
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrderDetailsEditor = (function (_super) {
+            __extends(RetailOrderDetailsEditor, _super);
+            function RetailOrderDetailsEditor(container) {
+                return _super.call(this, container) || this;
+            }
+            RetailOrderDetailsEditor.prototype.getColumnsKey = function () { return 'Sale.RetailOrderDetails'; };
+            RetailOrderDetailsEditor.prototype.getDialogType = function () { return Sale.RetailOrderDetailsDialog; };
+            RetailOrderDetailsEditor.prototype.getLocalTextPrefix = function () { return Sale.RetailOrderDetailsRow.localTextPrefix; };
+            return RetailOrderDetailsEditor;
+        }(ERP.Common.GridEditorBase));
+        RetailOrderDetailsEditor = __decorate([
+            Serenity.Decorators.registerClass()
+        ], RetailOrderDetailsEditor);
+        Sale.RetailOrderDetailsEditor = RetailOrderDetailsEditor;
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrderDetailsGrid = (function (_super) {
+            __extends(RetailOrderDetailsGrid, _super);
+            function RetailOrderDetailsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            RetailOrderDetailsGrid.prototype.getColumnsKey = function () { return 'Sale.RetailOrderDetails'; };
+            RetailOrderDetailsGrid.prototype.getDialogType = function () { return Sale.RetailOrderDetailsDialog; };
+            RetailOrderDetailsGrid.prototype.getIdProperty = function () { return Sale.RetailOrderDetailsRow.idProperty; };
+            RetailOrderDetailsGrid.prototype.getLocalTextPrefix = function () { return Sale.RetailOrderDetailsRow.localTextPrefix; };
+            RetailOrderDetailsGrid.prototype.getService = function () { return Sale.RetailOrderDetailsService.baseUrl; };
+            return RetailOrderDetailsGrid;
+        }(Serenity.EntityGrid));
+        RetailOrderDetailsGrid = __decorate([
+            Serenity.Decorators.registerClass()
+        ], RetailOrderDetailsGrid);
+        Sale.RetailOrderDetailsGrid = RetailOrderDetailsGrid;
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrdersDialog = (function (_super) {
+            __extends(RetailOrdersDialog, _super);
+            function RetailOrdersDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Sale.RetailOrdersForm(_this.idPrefix);
+                _this.form.OrderId.element.on('keyup', function (e) {
+                    // only auto number when a key between 'A' and 'Z' is pressed
+                    if (e.which >= 65 && e.which <= 90)
+                        _this.getNextNumber();
+                });
+                return _this;
+                //this.form.DepotID.change(e => {
+                //    this.form.DetailList.depotID = Q.toId(this.form.DepotID.value);
+                //});
+            }
+            RetailOrdersDialog.prototype.getFormKey = function () { return Sale.RetailOrdersForm.formKey; };
+            RetailOrdersDialog.prototype.getIdProperty = function () { return Sale.RetailOrdersRow.idProperty; };
+            RetailOrdersDialog.prototype.getLocalTextPrefix = function () { return Sale.RetailOrdersRow.localTextPrefix; };
+            RetailOrdersDialog.prototype.getNameProperty = function () { return Sale.RetailOrdersRow.nameProperty; };
+            RetailOrdersDialog.prototype.getService = function () { return Sale.RetailOrdersService.baseUrl; };
+            RetailOrdersDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                // fill next number in new record mode
+                if (this.isNew())
+                    this.getNextNumber();
+                if (!this.isNew()) {
+                }
+                //if (this.isNew()) {
+                //    this.applyChangesButton.hide();
+                //    this.deleteButton.hide();
+                //    this.saveAndCloseButton.hide();
+                //}
+            };
+            RetailOrdersDialog.prototype.getNextNumber = function () {
+                var _this = this;
+                var flag = 'LS' + Q.formatDate(new Date(), "yyyyMMdd");
+                var val = Q.trimToNull(this.form.OrderId.value);
+                // we will only get next number when customer ID is empty or 1 character in length
+                if (!val || val.length <= 1) {
+                    // if no customer ID yet (new record mode probably) use 'C' as a prefix
+                    var prefix = (val || flag).toUpperCase();
+                    // call our service, see CustomerEndpoint.cs and CustomerRepository.cs
+                    ERP.Sale.RetailOrdersService.GetNextNumber({
+                        Prefix: prefix,
+                        Length: 14 // we want service to search for and return serials of 5 in length
+                    }, function (response) {
+                        _this.form.OrderId.value = response.Serial;
+                        // this is to mark numerical part after prefix
+                        _this.form.OrderId.element[0].setSelectionRange(prefix.length, response.Serial.length);
+                    });
+                }
+            };
+            return RetailOrdersDialog;
+        }(Serenity.EntityDialog));
+        RetailOrdersDialog = __decorate([
+            Serenity.Decorators.registerClass(),
+            Serenity.Decorators.responsive()
+        ], RetailOrdersDialog);
+        Sale.RetailOrdersDialog = RetailOrdersDialog;
+    })(Sale = ERP.Sale || (ERP.Sale = {}));
+})(ERP || (ERP = {}));
+var ERP;
+(function (ERP) {
+    var Sale;
+    (function (Sale) {
+        var RetailOrdersGrid = (function (_super) {
+            __extends(RetailOrdersGrid, _super);
+            function RetailOrdersGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            RetailOrdersGrid.prototype.getColumnsKey = function () { return 'Sale.RetailOrders'; };
+            RetailOrdersGrid.prototype.getDialogType = function () { return Sale.RetailOrdersDialog; };
+            RetailOrdersGrid.prototype.getIdProperty = function () { return Sale.RetailOrdersRow.idProperty; };
+            RetailOrdersGrid.prototype.getLocalTextPrefix = function () { return Sale.RetailOrdersRow.localTextPrefix; };
+            RetailOrdersGrid.prototype.getService = function () { return Sale.RetailOrdersService.baseUrl; };
+            return RetailOrdersGrid;
+        }(Serenity.EntityGrid));
+        RetailOrdersGrid = __decorate([
+            Serenity.Decorators.registerClass()
+        ], RetailOrdersGrid);
+        Sale.RetailOrdersGrid = RetailOrdersGrid;
     })(Sale = ERP.Sale || (ERP.Sale = {}));
 })(ERP || (ERP = {}));
 //# sourceMappingURL=ERP.Web.js.map
