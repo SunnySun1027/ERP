@@ -15,6 +15,7 @@ namespace ERP.Sale.Entities
     [ReadPermission(Sale.PermissionKeys.Customer.View)]
     [ModifyPermission(Sale.PermissionKeys.Customer.Modify)]
     [DeletePermission(Sale.PermissionKeys.Customer.Delete)]
+    [LookupScript("Sale.Customer")]
     [LeftJoin("cd", "CustomerDetails", "cd.ID = t0.ID")]
     [UpdatableExtension("cd", typeof(CustomerDetailsRow), CascadeDelete = true)]
     public sealed class CustomerRow : Row, IIdRow, INameRow

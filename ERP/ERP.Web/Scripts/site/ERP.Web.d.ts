@@ -2528,6 +2528,183 @@ declare namespace ERP.Sale {
         Shipped = 1,
     }
 }
+declare namespace ERP.Sale {
+    class RetailOrderDetailsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface RetailOrderDetailsForm {
+        ProductID: Serenity.LookupEditor;
+        ColorID: Serenity.LookupEditor;
+        SizeID: Serenity.LookupEditor;
+        UnitPrice: Serenity.DecimalEditor;
+        Quantity: Serenity.IntegerEditor;
+        Description: Serenity.StringEditor;
+    }
+}
+declare namespace ERP.Sale {
+    interface RetailOrderDetailsRow {
+        Id?: number;
+        OrderId?: string;
+        ProductID?: number;
+        ColorID?: number;
+        SizeID?: number;
+        UnitPrice?: number;
+        Quantity?: number;
+        Description?: string;
+        OrderCustomerId?: string;
+        OrderUserId?: number;
+        OrderCreateDate?: string;
+        OrderDescription?: string;
+        OrderState?: number;
+        ProductProductName?: string;
+        ProductSupplierId?: number;
+        ProductCategoryId?: number;
+        ProductQuantityPerUnit?: string;
+        ProductUnitPrice?: number;
+        ProductUnitsInStock?: number;
+        ProductUnitsOnOrder?: number;
+        ProductReorderLevel?: number;
+        ProductDiscontinued?: boolean;
+        ProductProductImage?: string;
+        ProductGalleryImages?: string;
+        ColorColorName?: string;
+        ColorColorGroupId?: number;
+        SizeSizeName?: string;
+        SizeSizeGroupId?: number;
+    }
+    namespace RetailOrderDetailsRow {
+        const idProperty = "Id";
+        const nameProperty = "OrderId";
+        const localTextPrefix = "Sale.RetailOrderDetails";
+        namespace Fields {
+            const Id: any;
+            const OrderId: any;
+            const ProductID: any;
+            const ColorID: any;
+            const SizeID: any;
+            const UnitPrice: any;
+            const Quantity: any;
+            const Description: any;
+            const OrderCustomerId: string;
+            const OrderUserId: string;
+            const OrderCreateDate: string;
+            const OrderDescription: string;
+            const OrderState: string;
+            const ProductProductName: string;
+            const ProductSupplierId: string;
+            const ProductCategoryId: string;
+            const ProductQuantityPerUnit: string;
+            const ProductUnitPrice: string;
+            const ProductUnitsInStock: string;
+            const ProductUnitsOnOrder: string;
+            const ProductReorderLevel: string;
+            const ProductDiscontinued: string;
+            const ProductProductImage: string;
+            const ProductGalleryImages: string;
+            const ColorColorName: string;
+            const ColorColorGroupId: string;
+            const SizeSizeName: string;
+            const SizeSizeGroupId: string;
+        }
+    }
+}
+declare namespace ERP.Sale {
+    namespace RetailOrderDetailsService {
+        const baseUrl = "Sale/RetailOrderDetails";
+        function Create(request: Serenity.SaveRequest<RetailOrderDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RetailOrderDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RetailOrderDetailsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RetailOrderDetailsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace ERP.Sale {
+    class RetailOrdersForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface RetailOrdersForm {
+        OrderId: Serenity.StringEditor;
+        CustomerId: Serenity.StringEditor;
+        UserId: Serenity.IntegerEditor;
+        CreateDate: Serenity.DateEditor;
+        Description: Serenity.StringEditor;
+        State: Serenity.IntegerEditor;
+        DetailList: RetailOrderDetailsEditor;
+    }
+}
+declare namespace ERP.Sale {
+    interface RetailOrdersRow {
+        OrderId?: string;
+        CustomerId?: string;
+        UserId?: number;
+        CreateDate?: string;
+        Description?: string;
+        State?: number;
+        CustomerCompanyName?: string;
+        CustomerContactName?: string;
+        CustomerContactTitle?: string;
+        CustomerAddress?: string;
+        CustomerCity?: string;
+        CustomerRegion?: string;
+        CustomerPostalCode?: string;
+        CustomerCountry?: string;
+        CustomerPhone?: string;
+        CustomerFax?: string;
+        CustomerId?: number;
+        DetailList?: RetailOrderDetailsRow[];
+    }
+    namespace RetailOrdersRow {
+        const idProperty = "OrderId";
+        const nameProperty = "OrderId";
+        const localTextPrefix = "Sale.RetailOrders";
+        namespace Fields {
+            const OrderId: any;
+            const CustomerId: any;
+            const UserId: any;
+            const CreateDate: any;
+            const Description: any;
+            const State: any;
+            const CustomerCompanyName: string;
+            const CustomerContactName: string;
+            const CustomerContactTitle: string;
+            const CustomerAddress: string;
+            const CustomerCity: string;
+            const CustomerRegion: string;
+            const CustomerPostalCode: string;
+            const CustomerCountry: string;
+            const CustomerPhone: string;
+            const CustomerFax: string;
+            const CustomerId: string;
+            const DetailList: string;
+        }
+    }
+}
+declare namespace ERP.Sale {
+    namespace RetailOrdersService {
+        const baseUrl = "Sale/RetailOrders";
+        function Create(request: Serenity.SaveRequest<RetailOrdersRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RetailOrdersRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function GetNextNumber(request: GetNextNumberRequest, onSuccess?: (response: GetNextNumberResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RetailOrdersRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RetailOrdersRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const GetNextNumber: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
 declare namespace ERP {
     interface ScriptUserDefinition {
         Username?: string;
@@ -2535,6 +2712,178 @@ declare namespace ERP {
         Permissions?: {
             [key: string]: boolean;
         };
+    }
+}
+declare namespace ERP.Shoes {
+    class RetailOrderDetailsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface RetailOrderDetailsForm {
+        OrderId: Serenity.StringEditor;
+        ProductId: Serenity.IntegerEditor;
+        ColorId: Serenity.IntegerEditor;
+        SizeId: Serenity.IntegerEditor;
+        UnitPrice: Serenity.DecimalEditor;
+        Quantity: Serenity.IntegerEditor;
+        Description: Serenity.StringEditor;
+    }
+}
+declare namespace ERP.Shoes {
+    interface RetailOrderDetailsRow {
+        Id?: number;
+        OrderId?: string;
+        ProductId?: number;
+        ColorId?: number;
+        SizeId?: number;
+        UnitPrice?: number;
+        Quantity?: number;
+        Description?: string;
+        OrderCustomerId?: string;
+        OrderUserId?: number;
+        OrderCreateDate?: string;
+        OrderDescription?: string;
+        OrderState?: number;
+        ProductProductName?: string;
+        ProductSupplierId?: number;
+        ProductCategoryId?: number;
+        ProductQuantityPerUnit?: string;
+        ProductUnitPrice?: number;
+        ProductUnitsInStock?: number;
+        ProductUnitsOnOrder?: number;
+        ProductReorderLevel?: number;
+        ProductDiscontinued?: boolean;
+        ProductProductImage?: string;
+        ProductGalleryImages?: string;
+        ColorColorName?: string;
+        ColorColorGroupId?: number;
+        SizeSizeName?: string;
+        SizeSizeGroupId?: number;
+    }
+    namespace RetailOrderDetailsRow {
+        const idProperty = "Id";
+        const nameProperty = "OrderId";
+        const localTextPrefix = "Shoes.RetailOrderDetails";
+        namespace Fields {
+            const Id: any;
+            const OrderId: any;
+            const ProductId: any;
+            const ColorId: any;
+            const SizeId: any;
+            const UnitPrice: any;
+            const Quantity: any;
+            const Description: any;
+            const OrderCustomerId: string;
+            const OrderUserId: string;
+            const OrderCreateDate: string;
+            const OrderDescription: string;
+            const OrderState: string;
+            const ProductProductName: string;
+            const ProductSupplierId: string;
+            const ProductCategoryId: string;
+            const ProductQuantityPerUnit: string;
+            const ProductUnitPrice: string;
+            const ProductUnitsInStock: string;
+            const ProductUnitsOnOrder: string;
+            const ProductReorderLevel: string;
+            const ProductDiscontinued: string;
+            const ProductProductImage: string;
+            const ProductGalleryImages: string;
+            const ColorColorName: string;
+            const ColorColorGroupId: string;
+            const SizeSizeName: string;
+            const SizeSizeGroupId: string;
+        }
+    }
+}
+declare namespace ERP.Shoes {
+    namespace RetailOrderDetailsService {
+        const baseUrl = "Shoes/RetailOrderDetails";
+        function Create(request: Serenity.SaveRequest<RetailOrderDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RetailOrderDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RetailOrderDetailsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RetailOrderDetailsRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace ERP.Shoes {
+    class RetailOrdersForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface RetailOrdersForm {
+        CustomerId: Serenity.StringEditor;
+        UserId: Serenity.IntegerEditor;
+        CreateDate: Serenity.DateEditor;
+        Description: Serenity.StringEditor;
+        State: Serenity.IntegerEditor;
+    }
+}
+declare namespace ERP.Shoes {
+    interface RetailOrdersRow {
+        OrderId?: string;
+        CustomerId?: string;
+        UserId?: number;
+        CreateDate?: string;
+        Description?: string;
+        State?: number;
+        CustomerCompanyName?: string;
+        CustomerContactName?: string;
+        CustomerContactTitle?: string;
+        CustomerAddress?: string;
+        CustomerCity?: string;
+        CustomerRegion?: string;
+        CustomerPostalCode?: string;
+        CustomerCountry?: string;
+        CustomerPhone?: string;
+        CustomerFax?: string;
+        CustomerId?: number;
+    }
+    namespace RetailOrdersRow {
+        const idProperty = "OrderId";
+        const nameProperty = "OrderId";
+        const localTextPrefix = "Shoes.RetailOrders";
+        namespace Fields {
+            const OrderId: any;
+            const CustomerId: any;
+            const UserId: any;
+            const CreateDate: any;
+            const Description: any;
+            const State: any;
+            const CustomerCompanyName: string;
+            const CustomerContactName: string;
+            const CustomerContactTitle: string;
+            const CustomerAddress: string;
+            const CustomerCity: string;
+            const CustomerRegion: string;
+            const CustomerPostalCode: string;
+            const CustomerCountry: string;
+            const CustomerPhone: string;
+            const CustomerFax: string;
+            const CustomerId: string;
+        }
+    }
+}
+declare namespace ERP.Shoes {
+    namespace RetailOrdersService {
+        const baseUrl = "Shoes/RetailOrders";
+        function Create(request: Serenity.SaveRequest<RetailOrdersRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<RetailOrdersRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RetailOrdersRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RetailOrdersRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
     }
 }
 declare namespace ERP.Administration {
@@ -3640,5 +3989,56 @@ declare namespace ERP.Sale {
         protected getLocalTextPrefix(): string;
         constructor(container: JQuery);
         validateEntity(row: any, id: any): boolean;
+    }
+}
+declare namespace ERP.Sale {
+    class RetailOrderDetailsDialog extends Common.GridEditorDialog<RetailOrderDetailsRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: RetailOrderDetailsForm;
+        constructor();
+        depotID: string;
+        private getDepotStock();
+    }
+}
+declare namespace ERP.Sale {
+    class RetailOrderDetailsEditor extends Common.GridEditorBase<RetailOrderDetailsRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RetailOrderDetailsDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace ERP.Sale {
+    class RetailOrderDetailsGrid extends Serenity.EntityGrid<RetailOrderDetailsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RetailOrderDetailsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace ERP.Sale {
+    class RetailOrdersDialog extends Serenity.EntityDialog<RetailOrdersRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: RetailOrdersForm;
+        constructor();
+        protected afterLoadEntity(): void;
+        private getNextNumber();
+    }
+}
+declare namespace ERP.Sale {
+    class RetailOrdersGrid extends Serenity.EntityGrid<RetailOrdersRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof RetailOrdersDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }

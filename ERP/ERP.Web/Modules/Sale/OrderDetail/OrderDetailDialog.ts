@@ -15,9 +15,9 @@ namespace ERP.Sale {
             this.form = new OrderDetailForm(this.idPrefix);
 
             this.form.ProductID.changeSelect2(e => {
-                var productID = Q.toId(this.form.ProductID.value);
-                if (productID != null) {
-                    this.form.UnitPrice.value = ERP.Basic.ProductRow.getLookup().itemById[productID].UnitPrice;
+                var ProductID = Q.toId(this.form.ProductID.value);
+                if (ProductID != null) {
+                    this.form.UnitPrice.value = ERP.Basic.ProductRow.getLookup().itemById[ProductID].UnitPrice;
                 }
             });
 

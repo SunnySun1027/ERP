@@ -1674,6 +1674,7 @@
     <TypeScriptCompile Include="Modules\Sale\OrderDetail\OrderDetailsEditor.ts" />
     <TypeScriptCompile Include="Modules\Sale\Order\FreightFormatter.ts" />
     <TypeScriptCompile Include="Modules\Sale\Order\OrderBulkAction.ts" />
+    <TypeScriptCompile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsEditor.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\serenity\Serenity.CoreLib.d.ts" />
@@ -1981,6 +1982,30 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Purchase\PurchaseDetail\PurchaseDetailGrid.ts" />
     <TypeScriptCompile Include="Modules\Purchase\PurchaseDetail\PurchaseDetailDialog.ts" />
+    <Content Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsIndex.cshtml" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Sale.RetailOrderDetailsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Sale.RetailOrderDetailsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Sale.RetailOrderDetailsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsGrid.ts" />
+    <TypeScriptCompile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsDialog.ts" />
+    <Content Include="Modules\Sale\RetailOrders\RetailOrdersIndex.cshtml" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Sale.RetailOrdersRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Sale.RetailOrdersService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Sale.RetailOrdersForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Sale\RetailOrders\RetailOrdersGrid.ts" />
+    <TypeScriptCompile Include="Modules\Sale\RetailOrders\RetailOrdersDialog.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2046,6 +2071,10 @@
     <Compile Include="Imports\ClientTypes\ERP.Sale.OrderDetailsEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\ERP.Sale.RetailOrderDetailsEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ShoesDB\ShoesDB_20170502_001400_RetailOrders.cs" />
     <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
     <Compile Include="Modules\Administration\AdministrationPermissionKeys.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
@@ -2177,6 +2206,8 @@
     <Compile Include="Modules\Sale\Order\OrderShipCountry.cs" />
     <Compile Include="Modules\Sale\Order\OrderShippingState.cs" />
     <Compile Include="Modules\Sale\PermissionKeys.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\PColorLookup.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\PSizeLookup.cs" />
     <Compile Include="Modules\Sale\SaleNavigation.cs" />
     <Compile Include="Modules\Texts.cs" />
     <Compile Include="Modules\Membership\Account\AccountPage.cs" />
@@ -2366,6 +2397,18 @@
     <Compile Include="Modules\Purchase\PurchaseDetail\PurchaseDetailRepository.cs" />
     <Compile Include="Modules\Purchase\PurchaseDetail\PurchaseDetailEndpoint.cs" />
     <Compile Include="Modules\Purchase\PurchaseDetail\PurchaseDetailPage.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsRow.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsColumns.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsForm.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsRepository.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsEndpoint.cs" />
+    <Compile Include="Modules\Sale\RetailOrderDetails\RetailOrderDetailsPage.cs" />
+    <Compile Include="Modules\Sale\RetailOrders\RetailOrdersRow.cs" />
+    <Compile Include="Modules\Sale\RetailOrders\RetailOrdersColumns.cs" />
+    <Compile Include="Modules\Sale\RetailOrders\RetailOrdersForm.cs" />
+    <Compile Include="Modules\Sale\RetailOrders\RetailOrdersRepository.cs" />
+    <Compile Include="Modules\Sale\RetailOrders\RetailOrdersEndpoint.cs" />
+    <Compile Include="Modules\Sale\RetailOrders\RetailOrdersPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
