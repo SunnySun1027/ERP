@@ -29,7 +29,7 @@ namespace ERP.Sale.Entities
             set { Fields.OrderId[this] = value; }
         }
 
-        [DisplayName("Product"), Column("ProductID"), PrimaryKey, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), TextualField("ProductProductName")]
+        [DisplayName("Product"), Column("ProductID"), PrimaryKey, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), TextualField("ProductName")]
         [LookupEditor(typeof(ProductRow))]
         public Int32? ProductID
         {
@@ -37,7 +37,7 @@ namespace ERP.Sale.Entities
             set { Fields.ProductID[this] = value; }
         }
 
-        [DisplayName("Color"), Column("ColorID"), PrimaryKey, ForeignKey("[dbo].[ProductColor]", "ColorID"), LeftJoin("jColor"), TextualField("ColorColorName")]
+        [DisplayName("Color"), Column("ColorID"), PrimaryKey, ForeignKey("[dbo].[ProductColor]", "ColorID"), LeftJoin("jColor"), TextualField("ColorName")]
         [LookupEditor(typeof(Scripts.PColorLookup))]
         public Int32? ColorID
         {
@@ -45,7 +45,7 @@ namespace ERP.Sale.Entities
             set { Fields.ColorID[this] = value; }
         }
 
-        [DisplayName("Size"), Column("SizeID"), PrimaryKey, ForeignKey("[dbo].[ProductSize]", "SizeID"), LeftJoin("jSize"), TextualField("SizeSizeName")]
+        [DisplayName("Size"), Column("SizeID"), PrimaryKey, ForeignKey("[dbo].[ProductSize]", "SizeID"), LeftJoin("jSize"), TextualField("SizeName")]
         [LookupEditor(typeof(Scripts.PSizeLookup))]
         public Int32? SizeID
         {
@@ -109,11 +109,11 @@ namespace ERP.Sale.Entities
             set { Fields.OrderState[this] = value; }
         }
 
-        [DisplayName("Product Product Name"), Expression("jProduct.[ProductName]")]
-        public String ProductProductName
+        [DisplayName("Product Product Name"), Expression("jProduct.[ProductName]"), MinSelectLevel(SelectLevel.List)]
+        public String ProductName
         {
-            get { return Fields.ProductProductName[this]; }
-            set { Fields.ProductProductName[this] = value; }
+            get { return Fields.ProductName[this]; }
+            set { Fields.ProductName[this] = value; }
         }
 
         [DisplayName("Product Supplier Id"), Expression("jProduct.[SupplierID]")]
@@ -186,11 +186,11 @@ namespace ERP.Sale.Entities
             set { Fields.ProductGalleryImages[this] = value; }
         }
 
-        [DisplayName("Color Color Name"), Expression("jColor.[ColorName]")]
-        public String ColorColorName
+        [DisplayName("Color Color Name"), Expression("jColor.[ColorName]"), MinSelectLevel(SelectLevel.List)]
+        public String ColorName
         {
-            get { return Fields.ColorColorName[this]; }
-            set { Fields.ColorColorName[this] = value; }
+            get { return Fields.ColorName[this]; }
+            set { Fields.ColorName[this] = value; }
         }
 
         [DisplayName("Color Color Group Id"), Expression("jColor.[ColorGroupID]")]
@@ -200,11 +200,11 @@ namespace ERP.Sale.Entities
             set { Fields.ColorColorGroupId[this] = value; }
         }
 
-        [DisplayName("Size Size Name"), Expression("jSize.[SizeName]")]
-        public String SizeSizeName
+        [DisplayName("Size Size Name"), Expression("jSize.[SizeName]"), MinSelectLevel(SelectLevel.List)]
+        public String SizeName
         {
-            get { return Fields.SizeSizeName[this]; }
-            set { Fields.SizeSizeName[this] = value; }
+            get { return Fields.SizeName[this]; }
+            set { Fields.SizeName[this] = value; }
         }
 
         [DisplayName("Size Size Group Id"), Expression("jSize.[SizeGroupID]")]
@@ -248,7 +248,7 @@ namespace ERP.Sale.Entities
             public StringField OrderDescription;
             public Int16Field OrderState;
 
-            public StringField ProductProductName;
+            public StringField ProductName;
             public Int32Field ProductSupplierId;
             public Int32Field ProductCategoryId;
             public StringField ProductQuantityPerUnit;
@@ -260,10 +260,10 @@ namespace ERP.Sale.Entities
             public StringField ProductProductImage;
             public StringField ProductGalleryImages;
 
-            public StringField ColorColorName;
+            public StringField ColorName;
             public Int32Field ColorColorGroupId;
 
-            public StringField SizeSizeName;
+            public StringField SizeName;
             public Int32Field SizeSizeGroupId;
 
             public RowFields()

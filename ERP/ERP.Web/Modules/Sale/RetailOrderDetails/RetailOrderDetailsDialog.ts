@@ -60,7 +60,7 @@ namespace ERP.Sale {
             );
             if (sameProduct) {
                 this.form.Quantity.value = sameProduct.Quantity;
-                //this.form.OriginalQuantity.value = sameProduct.Quantity;
+                this.form.UnitPrice.value = sameProduct.ProductUnitPrice;
             }
         }
     }

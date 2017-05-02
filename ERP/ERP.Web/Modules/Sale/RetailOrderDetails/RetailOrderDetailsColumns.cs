@@ -13,13 +13,10 @@ namespace ERP.Sale.Columns
     [BasedOnRow(typeof(Entities.RetailOrderDetailsRow))]
     public class RetailOrderDetailsColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 Id { get; set; }
-        [EditLink]
-        public String OrderId { get; set; }
-        public Int32 ProductID { get; set; }
-        public Int32 ColorID { get; set; }
-        public Int32 SizeID { get; set; }
+        [EditLink, Width(200)]
+        public String ProductName { get; set; }
+        public String ColorName { get; set; }
+        public String SizeName { get; set; }
         public Decimal UnitPrice { get; set; }
         public Int32 Quantity { get; set; }
         public String Description { get; set; }

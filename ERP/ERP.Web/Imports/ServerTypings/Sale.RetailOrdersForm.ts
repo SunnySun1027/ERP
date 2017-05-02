@@ -7,6 +7,7 @@ namespace ERP.Sale {
 
     export interface RetailOrdersForm {
         OrderId: Serenity.StringEditor;
+        DepotID: Serenity.LookupEditor;
         CustomerId: Serenity.StringEditor;
         UserId: Serenity.IntegerEditor;
         CreateDate: Serenity.DateEditor;
@@ -15,5 +16,5 @@ namespace ERP.Sale {
         DetailList: RetailOrderDetailsEditor;
     }
 
-    [['OrderId', () => Serenity.StringEditor], ['CustomerId', () => Serenity.StringEditor], ['UserId', () => Serenity.IntegerEditor], ['CreateDate', () => Serenity.DateEditor], ['Description', () => Serenity.StringEditor], ['State', () => Serenity.IntegerEditor], ['DetailList', () => RetailOrderDetailsEditor]].forEach(x => Object.defineProperty(RetailOrdersForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['OrderId', () => Serenity.StringEditor], ['DepotID', () => Serenity.LookupEditor], ['CustomerId', () => Serenity.StringEditor], ['UserId', () => Serenity.IntegerEditor], ['CreateDate', () => Serenity.DateEditor], ['Description', () => Serenity.StringEditor], ['State', () => Serenity.IntegerEditor], ['DetailList', () => RetailOrderDetailsEditor]].forEach(x => Object.defineProperty(RetailOrdersForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
