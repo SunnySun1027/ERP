@@ -15,6 +15,7 @@ namespace ERP.Sale.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public String OrderId { get; set; }
+        public String DepotDepotName { get; set; }
         public String CustomerId { get; set; }
         public Int32 UserId { get; set; }
         public DateTime CreateDate { get; set; }

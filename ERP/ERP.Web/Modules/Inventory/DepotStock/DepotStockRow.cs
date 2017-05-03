@@ -107,7 +107,7 @@ namespace ERP.Inventory.Entities
             set { Fields.ProductQuantityPerUnit[this] = value; }
         }
 
-        [DisplayName("Product Unit Price"), Expression("jProduct.[UnitPrice]")]
+        [DisplayName("Product Unit Price"), Expression("jProduct.[UnitPrice]"), LookupInclude]
         public Decimal? ProductUnitPrice
         {
             get { return Fields.ProductUnitPrice[this]; }

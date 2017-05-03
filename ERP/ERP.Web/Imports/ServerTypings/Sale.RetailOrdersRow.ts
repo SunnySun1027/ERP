@@ -2,6 +2,7 @@
 namespace ERP.Sale {
     export interface RetailOrdersRow {
         OrderId?: string;
+        DepotID?: string;
         CustomerId?: string;
         UserId?: number;
         CreateDate?: string;
@@ -28,6 +29,7 @@ namespace ERP.Sale {
 
         export namespace Fields {
             export declare const OrderId;
+            export declare const DepotID: string;
             export declare const CustomerId;
             export declare const UserId;
             export declare const CreateDate;
@@ -47,7 +49,7 @@ namespace ERP.Sale {
             export declare const DetailList: string;
         }
 
-        ['OrderId', 'CustomerId', 'UserId', 'CreateDate', 'Description', 'State', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerAddress', 'CustomerCity', 'CustomerRegion', 'CustomerPostalCode', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'CustomerId', 'DetailList'].forEach(x => (<any>Fields)[x] = x);
+        ['OrderId', 'DepotID', 'CustomerId', 'UserId', 'CreateDate', 'Description', 'State', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerAddress', 'CustomerCity', 'CustomerRegion', 'CustomerPostalCode', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'CustomerId', 'DetailList'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

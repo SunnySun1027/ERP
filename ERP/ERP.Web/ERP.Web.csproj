@@ -2074,6 +2074,7 @@
     <Compile Include="Imports\ClientTypes\ERP.Sale.RetailOrderDetailsEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ShoesDB\ShoesDB_20170503_000100_RetailOrdersDepot.cs" />
     <Compile Include="Migrations\ShoesDB\ShoesDB_20170502_001400_RetailOrders.cs" />
     <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
     <Compile Include="Modules\Administration\AdministrationPermissionKeys.cs" />

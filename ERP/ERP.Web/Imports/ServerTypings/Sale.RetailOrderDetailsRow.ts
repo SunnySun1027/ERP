@@ -14,7 +14,7 @@ namespace ERP.Sale {
         OrderCreateDate?: string;
         OrderDescription?: string;
         OrderState?: number;
-        ProductProductName?: string;
+        ProductName?: string;
         ProductSupplierId?: number;
         ProductCategoryId?: number;
         ProductQuantityPerUnit?: string;
@@ -25,9 +25,9 @@ namespace ERP.Sale {
         ProductDiscontinued?: boolean;
         ProductProductImage?: string;
         ProductGalleryImages?: string;
-        ColorColorName?: string;
+        ColorName?: string;
         ColorColorGroupId?: number;
-        SizeSizeName?: string;
+        SizeName?: string;
         SizeSizeGroupId?: number;
     }
 
@@ -50,7 +50,7 @@ namespace ERP.Sale {
             export declare const OrderCreateDate: string;
             export declare const OrderDescription: string;
             export declare const OrderState: string;
-            export declare const ProductProductName: string;
+            export declare const ProductName: string;
             export declare const ProductSupplierId: string;
             export declare const ProductCategoryId: string;
             export declare const ProductQuantityPerUnit: string;
@@ -61,13 +61,13 @@ namespace ERP.Sale {
             export declare const ProductDiscontinued: string;
             export declare const ProductProductImage: string;
             export declare const ProductGalleryImages: string;
-            export declare const ColorColorName: string;
+            export declare const ColorName: string;
             export declare const ColorColorGroupId: string;
-            export declare const SizeSizeName: string;
+            export declare const SizeName: string;
             export declare const SizeSizeGroupId: string;
         }
 
-        ['Id', 'OrderId', 'ProductID', 'ColorID', 'SizeID', 'UnitPrice', 'Quantity', 'Description', 'OrderCustomerId', 'OrderUserId', 'OrderCreateDate', 'OrderDescription', 'OrderState', 'ProductProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ProductGalleryImages', 'ColorColorName', 'ColorColorGroupId', 'SizeSizeName', 'SizeSizeGroupId'].forEach(x => (<any>Fields)[x] = x);
+        ['Id', 'OrderId', 'ProductID', 'ColorID', 'SizeID', 'UnitPrice', 'Quantity', 'Description', 'OrderCustomerId', 'OrderUserId', 'OrderCreateDate', 'OrderDescription', 'OrderState', 'ProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ProductGalleryImages', 'ColorName', 'ColorColorGroupId', 'SizeName', 'SizeSizeGroupId'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

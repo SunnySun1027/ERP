@@ -21,9 +21,9 @@ namespace ERP.Sale {
                     this.getNextNumber();
             });
 
-            //this.form.DepotID.change(e => {
-            //    this.form.DetailList.depotID = Q.toId(this.form.DepotID.value);
-            //});
+            this.form.DepotID.change(e => {
+                this.form.DetailList.depotID = Q.toId(this.form.DepotID.value);
+            });
         }
 
         protected afterLoadEntity() {

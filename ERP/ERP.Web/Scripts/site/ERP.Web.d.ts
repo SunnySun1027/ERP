@@ -2556,7 +2556,7 @@ declare namespace ERP.Sale {
         OrderCreateDate?: string;
         OrderDescription?: string;
         OrderState?: number;
-        ProductProductName?: string;
+        ProductName?: string;
         ProductSupplierId?: number;
         ProductCategoryId?: number;
         ProductQuantityPerUnit?: string;
@@ -2567,9 +2567,9 @@ declare namespace ERP.Sale {
         ProductDiscontinued?: boolean;
         ProductProductImage?: string;
         ProductGalleryImages?: string;
-        ColorColorName?: string;
+        ColorName?: string;
         ColorColorGroupId?: number;
-        SizeSizeName?: string;
+        SizeName?: string;
         SizeSizeGroupId?: number;
     }
     namespace RetailOrderDetailsRow {
@@ -2590,7 +2590,7 @@ declare namespace ERP.Sale {
             const OrderCreateDate: string;
             const OrderDescription: string;
             const OrderState: string;
-            const ProductProductName: string;
+            const ProductName: string;
             const ProductSupplierId: string;
             const ProductCategoryId: string;
             const ProductQuantityPerUnit: string;
@@ -2601,9 +2601,9 @@ declare namespace ERP.Sale {
             const ProductDiscontinued: string;
             const ProductProductImage: string;
             const ProductGalleryImages: string;
-            const ColorColorName: string;
+            const ColorName: string;
             const ColorColorGroupId: string;
-            const SizeSizeName: string;
+            const SizeName: string;
             const SizeSizeGroupId: string;
         }
     }
@@ -2631,6 +2631,7 @@ declare namespace ERP.Sale {
     }
     interface RetailOrdersForm {
         OrderId: Serenity.StringEditor;
+        DepotID: Serenity.LookupEditor;
         CustomerId: Serenity.StringEditor;
         UserId: Serenity.IntegerEditor;
         CreateDate: Serenity.DateEditor;
@@ -2642,6 +2643,7 @@ declare namespace ERP.Sale {
 declare namespace ERP.Sale {
     interface RetailOrdersRow {
         OrderId?: string;
+        DepotID?: string;
         CustomerId?: string;
         UserId?: number;
         CreateDate?: string;
@@ -2666,6 +2668,7 @@ declare namespace ERP.Sale {
         const localTextPrefix = "Sale.RetailOrders";
         namespace Fields {
             const OrderId: any;
+            const DepotID: string;
             const CustomerId: any;
             const UserId: any;
             const CreateDate: any;
@@ -4007,6 +4010,14 @@ declare namespace ERP.Sale {
         protected getDialogType(): typeof RetailOrderDetailsDialog;
         protected getLocalTextPrefix(): string;
         constructor(container: JQuery);
+        depotID: string;
+        /**
+         * This method is called to initialize an edit dialog created by
+         * grid editor when Add button or an edit link is clicked
+         * We have an opportunity here to pass CategoryID to edit dialog
+         */
+        protected initEntityDialog(itemType: string, dialog: Serenity.Widget<any>): void;
+        validateEntity(row: any, id: any): boolean;
     }
 }
 declare namespace ERP.Sale {

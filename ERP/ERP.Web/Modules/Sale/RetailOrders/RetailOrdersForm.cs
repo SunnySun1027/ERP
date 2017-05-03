@@ -15,6 +15,7 @@ namespace ERP.Sale.Forms
     {
         [Category("General")]
         public String OrderId { get; set; }
+        public String DepotID { get; set; }
         public String CustomerId { get; set; }
         public Int32 UserId { get; set; }
         [DefaultValue("now")]

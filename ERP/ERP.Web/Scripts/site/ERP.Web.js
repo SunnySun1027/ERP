@@ -1888,7 +1888,7 @@ var ERP;
             var Fields;
             (function (Fields) {
             })(Fields = RetailOrderDetailsRow.Fields || (RetailOrderDetailsRow.Fields = {}));
-            ['Id', 'OrderId', 'ProductID', 'ColorID', 'SizeID', 'UnitPrice', 'Quantity', 'Description', 'OrderCustomerId', 'OrderUserId', 'OrderCreateDate', 'OrderDescription', 'OrderState', 'ProductProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ProductGalleryImages', 'ColorColorName', 'ColorColorGroupId', 'SizeSizeName', 'SizeSizeGroupId'].forEach(function (x) { return Fields[x] = x; });
+            ['Id', 'OrderId', 'ProductID', 'ColorID', 'SizeID', 'UnitPrice', 'Quantity', 'Description', 'OrderCustomerId', 'OrderUserId', 'OrderCreateDate', 'OrderDescription', 'OrderState', 'ProductName', 'ProductSupplierId', 'ProductCategoryId', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'ProductUnitsInStock', 'ProductUnitsOnOrder', 'ProductReorderLevel', 'ProductDiscontinued', 'ProductProductImage', 'ProductGalleryImages', 'ColorName', 'ColorColorGroupId', 'SizeName', 'SizeSizeGroupId'].forEach(function (x) { return Fields[x] = x; });
         })(RetailOrderDetailsRow = Sale.RetailOrderDetailsRow || (Sale.RetailOrderDetailsRow = {}));
     })(Sale = ERP.Sale || (ERP.Sale = {}));
 })(ERP || (ERP = {}));
@@ -1922,7 +1922,7 @@ var ERP;
         }(Serenity.PrefixedContext));
         RetailOrdersForm.formKey = 'Sale.RetailOrders';
         Sale.RetailOrdersForm = RetailOrdersForm;
-        [['OrderId', function () { return Serenity.StringEditor; }], ['CustomerId', function () { return Serenity.StringEditor; }], ['UserId', function () { return Serenity.IntegerEditor; }], ['CreateDate', function () { return Serenity.DateEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['State', function () { return Serenity.IntegerEditor; }], ['DetailList', function () { return Sale.RetailOrderDetailsEditor; }]].forEach(function (x) { return Object.defineProperty(RetailOrdersForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        [['OrderId', function () { return Serenity.StringEditor; }], ['DepotID', function () { return Serenity.LookupEditor; }], ['CustomerId', function () { return Serenity.StringEditor; }], ['UserId', function () { return Serenity.IntegerEditor; }], ['CreateDate', function () { return Serenity.DateEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['State', function () { return Serenity.IntegerEditor; }], ['DetailList', function () { return Sale.RetailOrderDetailsEditor; }]].forEach(function (x) { return Object.defineProperty(RetailOrdersForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
     })(Sale = ERP.Sale || (ERP.Sale = {}));
 })(ERP || (ERP = {}));
 var ERP;
@@ -1937,7 +1937,7 @@ var ERP;
             var Fields;
             (function (Fields) {
             })(Fields = RetailOrdersRow.Fields || (RetailOrdersRow.Fields = {}));
-            ['OrderId', 'CustomerId', 'UserId', 'CreateDate', 'Description', 'State', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerAddress', 'CustomerCity', 'CustomerRegion', 'CustomerPostalCode', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'CustomerId', 'DetailList'].forEach(function (x) { return Fields[x] = x; });
+            ['OrderId', 'DepotID', 'CustomerId', 'UserId', 'CreateDate', 'Description', 'State', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerAddress', 'CustomerCity', 'CustomerRegion', 'CustomerPostalCode', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'CustomerId', 'DetailList'].forEach(function (x) { return Fields[x] = x; });
         })(RetailOrdersRow = Sale.RetailOrdersRow || (Sale.RetailOrdersRow = {}));
     })(Sale = ERP.Sale || (ERP.Sale = {}));
 })(ERP || (ERP = {}));
@@ -6738,7 +6738,7 @@ var ERP;
                     && (x.DepotID === _this.depotID); });
                 if (sameProduct) {
                     this.form.Quantity.value = sameProduct.Quantity;
-                    this.form.OriginalQuantity.value = sameProduct.Quantity;
+                    this.form.UnitPrice.value = sameProduct.ProductUnitPrice;
                 }
             };
             return RetailOrderDetailsDialog;
@@ -6763,6 +6763,31 @@ var ERP;
             RetailOrderDetailsEditor.prototype.getColumnsKey = function () { return 'Sale.RetailOrderDetails'; };
             RetailOrderDetailsEditor.prototype.getDialogType = function () { return Sale.RetailOrderDetailsDialog; };
             RetailOrderDetailsEditor.prototype.getLocalTextPrefix = function () { return Sale.RetailOrderDetailsRow.localTextPrefix; };
+            /**
+             * This method is called to initialize an edit dialog created by
+             * grid editor when Add button or an edit link is clicked
+             * We have an opportunity here to pass CategoryID to edit dialog
+             */
+            RetailOrderDetailsEditor.prototype.initEntityDialog = function (itemType, dialog) {
+                _super.prototype.initEntityDialog.call(this, itemType, dialog);
+                // passing category ID from grid editor to detail dialog
+                dialog.depotID = this.depotID;
+            };
+            RetailOrderDetailsEditor.prototype.validateEntity = function (row, id) {
+                row.ProductID = Q.toId(row.ProductID);
+                row.ColorID = Q.toId(row.ColorID);
+                row.SizeID = Q.toId(row.SizeID);
+                var sameProduct = Q.tryFirst(this.view.getItems(), function (x) { return (x.ProductID === row.ProductID) && (x.ColorID === row.ColorID) && (x.SizeID === row.SizeID); });
+                if (sameProduct && this.id(sameProduct) !== id) {
+                    Q.alert('This product is already in stock order details!');
+                    return false;
+                }
+                row.ProductName = ERP.Basic.ProductRow.getLookup().itemById[row.ProductID].ProductName;
+                row.ColorName = ERP.Basic.ProductColorRow.getLookup().itemById[row.ColorID].ColorName;
+                row.SizeName = ERP.Basic.ProductSizeRow.getLookup().itemById[row.SizeID].SizeName;
+                //row.LineTotal = (row.Quantity || 0) * (row.UnitPrice || 0) - (row.Discount || 0);
+                return true;
+            };
             return RetailOrderDetailsEditor;
         }(ERP.Common.GridEditorBase));
         RetailOrderDetailsEditor = __decorate([
@@ -6807,10 +6832,10 @@ var ERP;
                     if (e.which >= 65 && e.which <= 90)
                         _this.getNextNumber();
                 });
+                _this.form.DepotID.change(function (e) {
+                    _this.form.DetailList.depotID = Q.toId(_this.form.DepotID.value);
+                });
                 return _this;
-                //this.form.DepotID.change(e => {
-                //    this.form.DetailList.depotID = Q.toId(this.form.DepotID.value);
-                //});
             }
             RetailOrdersDialog.prototype.getFormKey = function () { return Sale.RetailOrdersForm.formKey; };
             RetailOrdersDialog.prototype.getIdProperty = function () { return Sale.RetailOrdersRow.idProperty; };

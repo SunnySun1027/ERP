@@ -1,6 +1,7 @@
 ﻿
 namespace ERP.Sale.Entities
 {
+    using Inventory.Entities;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -20,6 +21,14 @@ namespace ERP.Sale.Entities
         {
             get { return Fields.OrderId[this]; }
             set { Fields.OrderId[this] = value; }
+        }
+
+        [DisplayName("Depot"), Column("DepotID"), Size(5), NotNull, ForeignKey("[dbo].[Depots]", "DepotID"), LeftJoin("jDepot"), TextualField("DepotDepotName")]
+        [LookupEditor(typeof(DepotRow), InplaceAdd = true)]
+        public String DepotID
+        {
+            get { return Fields.DepotID[this]; }
+            set { Fields.DepotID[this] = value; }
         }
 
         [DisplayName("Customer"), Column("CustomerID"), Size(5), NotNull, ForeignKey("[dbo].[Customers]", "CustomerID"), LeftJoin("jCustomer"), TextualField("CustomerCompanyName")]
@@ -128,6 +137,20 @@ namespace ERP.Sale.Entities
             set { Fields.CustomerFax[this] = value; }
         }
 
+        [DisplayName("Depot Depot Name"), Expression("jDepot.[DepotName]")]
+        public String DepotDepotName
+        {
+            get { return Fields.DepotDepotName[this]; }
+            set { Fields.DepotDepotName[this] = value; }
+        }
+
+        [DisplayName("Depot Description"), Expression("jDepot.[Description]")]
+        public String DepotDescription
+        {
+            get { return Fields.DepotDescription[this]; }
+            set { Fields.DepotDescription[this] = value; }
+        }
+
         [DisplayName("Details"), MasterDetailRelation(foreignKey: "OrderID"), NotMapped]
         public List<RetailOrderDetailsRow> DetailList
         {
@@ -155,6 +178,7 @@ namespace ERP.Sale.Entities
         public class RowFields : RowFieldsBase
         {
             public StringField OrderId;
+            public StringField DepotID;
             public StringField CustomerId;
             public Int32Field UserId;
             public DateTimeField CreateDate;
@@ -171,6 +195,9 @@ namespace ERP.Sale.Entities
             public StringField CustomerCountry;
             public StringField CustomerPhone;
             public StringField CustomerFax;
+
+            public StringField DepotDepotName;
+            public StringField DepotDescription;
 
             public RowListField<RetailOrderDetailsRow> DetailList;
 
