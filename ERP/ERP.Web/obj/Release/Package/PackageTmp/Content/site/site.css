@@ -8282,3 +8282,27 @@ section.content > .s-DataGrid {
 .s-Purchase-PurchaseDetailDialog .caption {
   width: 150px;
 }
+.s-Shoes-RetailOrderDetailsDialog > .size {
+  width: 650px;
+}
+.s-Shoes-RetailOrderDetailsDialog .caption {
+  width: 150px;
+}
+.s-Shoes-RetailOrdersDialog > .size {
+  width: 650px;
+}
+.s-Shoes-RetailOrdersDialog .caption {
+  width: 150px;
+}
+.s-Sale-RetailOrderDetailsDialog > .size {
+  width: 650px;
+}
+.s-Sale-RetailOrderDetailsDialog .caption {
+  width: 150px;
+}
+.s-Sale-RetailOrdersDialog > .size {
+  width: 650px;
+}
+.s-Sale-RetailOrdersDialog .caption {
+  width: 150px;
+}
