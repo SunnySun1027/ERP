@@ -281,12 +281,12 @@ namespace ERP.Basic {
         protected getItemCssClass(item: Basic.ProductRow, index: number): string {
             let klass: string = "";
             
-            if (item.GalleryImages != "")
-                klass += " high-price";
-            else if (item.GalleryImages == "")
-                klass += " medium-price";
-            else
-                klass += " low-price";
+            //if (item.GalleryImages != "")
+            //    klass += " high-price";
+            //else if (item.GalleryImages == "")
+            //    klass += " medium-price";
+            //else
+            //    klass += " low-price";
 
             //if (item.UnitPrice >= 50)
             //    klass += " high-price";

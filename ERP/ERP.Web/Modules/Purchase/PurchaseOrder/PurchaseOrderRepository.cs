@@ -28,6 +28,11 @@ namespace ERP.Purchase.Repositories
             return new MyDeleteHandler().Process(uow, request);
         }
 
+        public GetNextNumberResponse GetNextNumber(IDbConnection connection, GetNextNumberRequest request)
+        {
+            return GetNextNumberHelper.GetNextNumber(connection, request, fld.OrderId);
+        }
+
         public RetrieveResponse<MyRow> Retrieve(IDbConnection connection, RetrieveRequest request)
         {
             return new MyRetrieveHandler().Process(connection, request);
