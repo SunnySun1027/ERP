@@ -2006,6 +2006,7 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Sale\RetailOrders\RetailOrdersGrid.ts" />
     <TypeScriptCompile Include="Modules\Sale\RetailOrders\RetailOrdersDialog.ts" />
+    <TypeScriptCompile Include="Modules\Purchase\PurchaseOrderDetail\PurchaseOrderDetailsEditor.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2057,6 +2058,9 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\ERP.Purchase.PurchaseDetailsEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\ERP.Purchase.PurchaseOrderDetailsEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\ERP.Sale.CustomerEditorAttribute.cs">

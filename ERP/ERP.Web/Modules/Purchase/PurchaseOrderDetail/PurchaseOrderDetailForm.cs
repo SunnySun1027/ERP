@@ -13,7 +13,6 @@ namespace ERP.Purchase.Forms
     [BasedOnRow(typeof(Entities.PurchaseOrderDetailRow))]
     public class PurchaseOrderDetailForm
     {
-        public String OrderId { get; set; }
         public Int32 ProductID { get; set; }
         public Int32 ColorID { get; set; }
         public Int32 SizeID { get; set; }

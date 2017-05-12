@@ -2,6 +2,7 @@
 
 namespace ERP.Purchase.Entities
 {
+    using Basic.Entities;
     using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
@@ -23,7 +24,7 @@ namespace ERP.Purchase.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Order"), Column("OrderID"), Size(14), PrimaryKey, ForeignKey("[dbo].[PurchaseOrders]", "OrderID"), LeftJoin("jOrder"), QuickSearch, TextualField("OrderDescription")]
+        [DisplayName("Order"), Column("OrderID"), Size(14), PrimaryKey, ForeignKey("[dbo].[PurchaseOrders]", "OrderID"), LeftJoin("jOrder"), QuickSearch, TextualField("OrderDescription"), Updatable(false)]
         public String OrderId
         {
             get { return Fields.OrderId[this]; }
@@ -31,6 +32,7 @@ namespace ERP.Purchase.Entities
         }
 
         [DisplayName("Product"), Column("ProductID"), PrimaryKey, ForeignKey("[dbo].[Products]", "ProductID"), LeftJoin("jProduct"), TextualField("ProductName")]
+        [LookupEditor(typeof(ProductRow))]
         public Int32? ProductID
         {
             get { return Fields.ProductID[this]; }
@@ -38,6 +40,7 @@ namespace ERP.Purchase.Entities
         }
 
         [DisplayName("Color"), Column("ColorID"), PrimaryKey, ForeignKey("[dbo].[ProductColor]", "ColorID"), LeftJoin("jColor"), TextualField("ColorName")]
+        [LookupEditor(typeof(Scripts.PColorLookup))]
         public Int32? ColorID
         {
             get { return Fields.ColorID[this]; }
@@ -45,6 +48,7 @@ namespace ERP.Purchase.Entities
         }
 
         [DisplayName("Size"), Column("SizeID"), PrimaryKey, ForeignKey("[dbo].[ProductSize]", "SizeID"), LeftJoin("jSize"), TextualField("SizeName")]
+        [LookupEditor(typeof(Scripts.PSizeLookup))]
         public Int32? SizeID
         {
             get { return Fields.SizeID[this]; }

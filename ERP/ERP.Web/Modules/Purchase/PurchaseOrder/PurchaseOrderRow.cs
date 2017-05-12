@@ -8,6 +8,7 @@ namespace ERP.Purchase.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -135,6 +136,13 @@ namespace ERP.Purchase.Entities
             set { Fields.SupplierHomePage[this] = value; }
         }
 
+        [DisplayName("Details"), MasterDetailRelation(foreignKey: "OrderID"), NotMapped]
+        public List<PurchaseOrderDetailRow> DetailList
+        {
+            get { return Fields.DetailList[this]; }
+            set { Fields.DetailList[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.OrderId; }
@@ -172,6 +180,8 @@ namespace ERP.Purchase.Entities
             public StringField SupplierPhone;
             public StringField SupplierFax;
             public StringField SupplierHomePage;
+
+            public RowListField<PurchaseOrderDetailRow> DetailList;
 
             public RowFields()
                 : base("[dbo].[PurchaseOrders]")

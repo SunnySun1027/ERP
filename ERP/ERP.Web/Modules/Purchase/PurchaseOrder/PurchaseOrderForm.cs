@@ -13,6 +13,7 @@ namespace ERP.Purchase.Forms
     [BasedOnRow(typeof(Entities.PurchaseOrderRow))]
     public class PurchaseOrderForm
     {
+        [Category("Order")]
         public String OrderId { get; set; }
         [LookupEditor(typeof(SupplierRow), InplaceAdd = true)]
         public Int32 SupplierId { get; set; }
@@ -21,5 +22,9 @@ namespace ERP.Purchase.Forms
         public DateTime CreateDate { get; set; }
         public String Description { get; set; }
         public Int16 State { get; set; }
+
+        [Category("Order Details")]
+        [PurchaseOrderDetailsEditor]
+        public List<Entities.PurchaseOrderDetailRow> DetailList { get; set; }
     }
 }

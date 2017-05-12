@@ -1,3 +1,6 @@
 {
-    "Navigation.Dashboard": "Dashboard"
+    "Db.Purchase.Supplier.EntityPlural": "供应商管理",
+    "Navigation.Dashboard": "Dashboard",
+    "Navigation.Northwind/Suppliers": "供应商管理",
+    "Navigation.Purchase/Suppliers": "供应商管理"
 }

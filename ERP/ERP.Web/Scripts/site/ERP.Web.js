@@ -1584,7 +1584,7 @@ var ERP;
             var Methods;
             (function (Methods) {
             })(Methods = PurchaseOrderService.Methods || (PurchaseOrderService.Methods = {}));
-            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+            ['Create', 'Update', 'Delete', 'GetNextNumber', 'Retrieve', 'List'].forEach(function (x) {
                 PurchaseOrderService[x] = function (r, s, o) { return Q.serviceRequest(PurchaseOrderService.baseUrl + '/' + x, r, s, o); };
                 Methods[x] = PurchaseOrderService.baseUrl + '/' + x;
             });
@@ -3616,12 +3616,12 @@ var ERP;
              */
             ProductGrid.prototype.getItemCssClass = function (item, index) {
                 var klass = "";
-                if (item.GalleryImages != "")
-                    klass += " high-price";
-                else if (item.GalleryImages == "")
-                    klass += " medium-price";
-                else
-                    klass += " low-price";
+                //if (item.GalleryImages != "")
+                //    klass += " high-price";
+                //else if (item.GalleryImages == "")
+                //    klass += " medium-price";
+                //else
+                //    klass += " low-price";
                 //if (item.UnitPrice >= 50)
                 //    klass += " high-price";
                 //else if (item.UnitPrice >= 20)
@@ -6016,15 +6016,56 @@ var ERP;
         var PurchaseOrderDialog = (function (_super) {
             __extends(PurchaseOrderDialog, _super);
             function PurchaseOrderDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
+                var _this = _super.call(this) || this;
                 _this.form = new Purchase.PurchaseOrderForm(_this.idPrefix);
+                _this.form.OrderId.element.on('keyup', function (e) {
+                    // only auto number when a key between 'A' and 'Z' is pressed
+                    if (e.which >= 65 && e.which <= 90)
+                        _this.getNextNumber();
+                });
                 return _this;
+                //this.form.DepotID.change(e => {
+                //    this.form.DetailList.depotID = Q.toId(this.form.DepotID.value);
+                //});
             }
             PurchaseOrderDialog.prototype.getFormKey = function () { return Purchase.PurchaseOrderForm.formKey; };
             PurchaseOrderDialog.prototype.getIdProperty = function () { return Purchase.PurchaseOrderRow.idProperty; };
             PurchaseOrderDialog.prototype.getLocalTextPrefix = function () { return Purchase.PurchaseOrderRow.localTextPrefix; };
             PurchaseOrderDialog.prototype.getNameProperty = function () { return Purchase.PurchaseOrderRow.nameProperty; };
             PurchaseOrderDialog.prototype.getService = function () { return Purchase.PurchaseOrderService.baseUrl; };
+            PurchaseOrderDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                // fill next number in new record mode
+                if (this.isNew())
+                    this.getNextNumber();
+                //if (!this.isNew()) {
+                //    this.setSaveButtonState();
+                //}
+                //if (this.isNew()) {
+                //    this.applyChangesButton.hide();
+                //    this.deleteButton.hide();
+                //    this.saveAndCloseButton.hide();
+                //}
+            };
+            PurchaseOrderDialog.prototype.getNextNumber = function () {
+                var _this = this;
+                var flag = 'PO' + Q.formatDate(new Date(), "yyyyMMdd");
+                var val = Q.trimToNull(this.form.OrderId.value);
+                // we will only get next number when customer ID is empty or 1 character in length
+                if (!val || val.length <= 1) {
+                    // if no customer ID yet (new record mode probably) use 'C' as a prefix
+                    var prefix = (val || flag).toUpperCase();
+                    // call our service, see CustomerEndpoint.cs and CustomerRepository.cs
+                    ERP.Purchase.PurchaseOrderService.GetNextNumber({
+                        Prefix: prefix,
+                        Length: 14 // we want service to search for and return serials of 5 in length
+                    }, function (response) {
+                        _this.form.OrderId.value = response.Serial;
+                        // this is to mark numerical part after prefix
+                        _this.form.OrderId.element[0].setSelectionRange(prefix.length, response.Serial.length);
+                    });
+                }
+            };
             return PurchaseOrderDialog;
         }(Serenity.EntityDialog));
         PurchaseOrderDialog = __decorate([
@@ -6101,6 +6142,27 @@ var ERP;
             Serenity.Decorators.registerClass()
         ], PurchaseOrderDetailGrid);
         Purchase.PurchaseOrderDetailGrid = PurchaseOrderDetailGrid;
+    })(Purchase = ERP.Purchase || (ERP.Purchase = {}));
+})(ERP || (ERP = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var ERP;
+(function (ERP) {
+    var Purchase;
+    (function (Purchase) {
+        var PurchaseOrderDetailsEditor = (function (_super) {
+            __extends(PurchaseOrderDetailsEditor, _super);
+            function PurchaseOrderDetailsEditor(container) {
+                return _super.call(this, container) || this;
+            }
+            PurchaseOrderDetailsEditor.prototype.getColumnsKey = function () { return 'Purchase.PurchaseOrderDetail'; };
+            PurchaseOrderDetailsEditor.prototype.getDialogType = function () { return Purchase.PurchaseOrderDetailDialog; };
+            PurchaseOrderDetailsEditor.prototype.getLocalTextPrefix = function () { return Purchase.PurchaseOrderDetailRow.localTextPrefix; };
+            return PurchaseOrderDetailsEditor;
+        }(ERP.Common.GridEditorBase));
+        PurchaseOrderDetailsEditor = __decorate([
+            Serenity.Decorators.registerClass()
+        ], PurchaseOrderDetailsEditor);
+        Purchase.PurchaseOrderDetailsEditor = PurchaseOrderDetailsEditor;
     })(Purchase = ERP.Purchase || (ERP.Purchase = {}));
 })(ERP || (ERP = {}));
 var ERP;

@@ -2066,12 +2066,14 @@ declare namespace ERP.Purchase {
         function Create(request: Serenity.SaveRequest<PurchaseOrderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Update(request: Serenity.SaveRequest<PurchaseOrderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetNextNumber(request: GetNextNumberRequest, onSuccess?: (response: GetNextNumberResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PurchaseOrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PurchaseOrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
             const Delete: string;
+            const GetNextNumber: string;
             const Retrieve: string;
             const List: string;
         }
@@ -3802,6 +3804,9 @@ declare namespace ERP.Purchase {
         protected getNameProperty(): string;
         protected getService(): string;
         protected form: PurchaseOrderForm;
+        constructor();
+        protected afterLoadEntity(): void;
+        private getNextNumber();
     }
 }
 declare namespace ERP.Purchase {
@@ -3831,6 +3836,14 @@ declare namespace ERP.Purchase {
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace ERP.Purchase {
+    class PurchaseOrderDetailsEditor extends Common.GridEditorBase<PurchaseOrderDetailRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PurchaseOrderDetailDialog;
+        protected getLocalTextPrefix(): string;
         constructor(container: JQuery);
     }
 }
