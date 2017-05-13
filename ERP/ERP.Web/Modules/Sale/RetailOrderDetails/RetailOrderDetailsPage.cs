@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Sale/RetailOrderDetails", typeof(ERP.Sale.Pages.RetailOrderDetailsController))]
+//[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Sale/RetailOrderDetails", typeof(ERP.Sale.Pages.RetailOrderDetailsController))]
 
 namespace ERP.Sale.Pages
 {
