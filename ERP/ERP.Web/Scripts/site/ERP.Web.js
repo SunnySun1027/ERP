@@ -3355,8 +3355,9 @@ var ERP;
         var ProductDialog = (function (_super) {
             __extends(ProductDialog, _super);
             function ProductDialog() {
-                var _this = _super !== null && _super.apply(this, arguments) || this;
+                var _this = _super.call(this) || this;
                 _this.form = new Basic.ProductForm(_this.idPrefix);
+                _this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-maximize').click();
                 return _this;
             }
             ProductDialog.prototype.getFormKey = function () { return Basic.ProductForm.formKey; };
@@ -5215,6 +5216,7 @@ var ERP;
             function InventoryCountDialog() {
                 var _this = _super.call(this) || this;
                 _this.form = new Inventory.InventoryCountForm(_this.idPrefix);
+                _this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-maximize').click();
                 _this.form.InventoryId.element.on('keyup', function (e) {
                     // only auto number when a key between 'A' and 'Z' is pressed
                     if (e.which >= 65 && e.which <= 90)
@@ -6889,6 +6891,7 @@ var ERP;
             function RetailOrdersDialog() {
                 var _this = _super.call(this) || this;
                 _this.form = new Sale.RetailOrdersForm(_this.idPrefix);
+                _this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-maximize').click();
                 _this.form.OrderId.element.on('keyup', function (e) {
                     // only auto number when a key between 'A' and 'Z' is pressed
                     if (e.which >= 65 && e.which <= 90)
@@ -6940,7 +6943,8 @@ var ERP;
         }(Serenity.EntityDialog));
         RetailOrdersDialog = __decorate([
             Serenity.Decorators.registerClass(),
-            Serenity.Decorators.responsive()
+            Serenity.Decorators.responsive(),
+            Serenity.Decorators.maximizable()
         ], RetailOrdersDialog);
         Sale.RetailOrdersDialog = RetailOrdersDialog;
     })(Sale = ERP.Sale || (ERP.Sale = {}));

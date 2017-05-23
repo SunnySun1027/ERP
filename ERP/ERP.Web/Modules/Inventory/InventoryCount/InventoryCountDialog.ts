@@ -15,6 +15,8 @@ namespace ERP.Inventory {
         constructor() {
             super();
 
+            this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-maximize').click();
+
             this.form.InventoryId.element.on('keyup', (e) => {
                 // only auto number when a key between 'A' and 'Z' is pressed
                 if (e.which >= 65 && e.which <= 90)

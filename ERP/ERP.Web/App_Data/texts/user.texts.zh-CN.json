@@ -84,6 +84,7 @@
     "Controls.ImageUpload.ColorboxNext": "next",
     "Controls.ImageUpload.ColorboxPrior": "prior",
     "Controls.ImageUpload.DeleteButtonHint": "移除",
+    "Controls.ImageUpload.NotAnImageFile": "上传的文件不是图片！",
     "Controls.ImageUpload.UploadFileTooBig": "上传文件的大小不能大于{0}",
     "Controls.ImageUpload.UploadFileTooSmall": "上传文件的大小不能小于{0}",
     "Controls.Pager.DefaultLoadError": "加载数据是发生错误",

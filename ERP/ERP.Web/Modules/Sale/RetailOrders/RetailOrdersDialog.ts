@@ -3,6 +3,7 @@ namespace ERP.Sale {
 
     @Serenity.Decorators.registerClass()
     @Serenity.Decorators.responsive()
+    @Serenity.Decorators.maximizable()
     export class RetailOrdersDialog extends Serenity.EntityDialog<RetailOrdersRow, any> {
         protected getFormKey() { return RetailOrdersForm.formKey; }
         protected getIdProperty() { return RetailOrdersRow.idProperty; }
@@ -14,6 +15,8 @@ namespace ERP.Sale {
 
         constructor() {
             super();
+
+            this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-maximize').click();
 
             this.form.OrderId.element.on('keyup', (e) => {
                 // only auto number when a key between 'A' and 'Z' is pressed

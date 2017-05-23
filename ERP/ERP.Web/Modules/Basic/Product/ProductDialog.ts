@@ -12,6 +12,12 @@ namespace ERP.Basic {
 
         protected form = new ProductForm(this.idPrefix);
 
+        constructor() {
+            super();
+
+            this.element.closest('.ui-dialog').find('.ui-dialog-titlebar-maximize').click();
+        }
+
         protected getLanguages(): string[][] {
             return LanguageList.getValue();
         }

@@ -3209,6 +3209,7 @@ declare namespace ERP.Basic {
         protected getNameProperty(): string;
         protected getService(): string;
         protected form: ProductForm;
+        constructor();
         protected getLanguages(): string[][];
     }
 }
