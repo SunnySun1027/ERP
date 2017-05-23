@@ -1,6 +1,6 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Inventory/InventoryCountDetail", typeof(ERP.Inventory.Pages.InventoryCountDetailController))]
+//[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Inventory/InventoryCountDetail", typeof(ERP.Inventory.Pages.InventoryCountDetailController))]
 
 namespace ERP.Inventory.Pages
 {
